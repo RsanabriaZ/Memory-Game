@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="jumbotron text-center">
+    <h1>Memory Game!</h1>
+
+    <div class="row"> 
+      <div class="col-lg-offset-1 col-lg-10">
+        <span class="pull-left">Tiempo: {{main.time}} </span>  <span class="pull-right"> moves : {{main.moves}}</span> 
+      </div>
+
+    </div>
+  <div class="row">
+      <div class="cards">
+
+        <div class="screen" style="line-height:{{100 * main.rows}}" ng-hide="main.gameStarted">
+          <a class="btn btn-primary startBottom" ng-click="main.startGame()" >START</a>
+        </div>
+          <div class="card" ng-repeat="card in main.cards" ng-click="main.show($index)" ng-class='{active:card.active}'
+          style="width:{{90 / main.rows}}%; height:100px; background-color:{{card.active ? card.color: '#3C3C3C'}};">
+            <span ng-show="card.active" class="pull-left">{{card.color}}</span>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+
+<style type="text/css">
+  
+  .active{
+      trasnsition: ;
+  }
+  
+</style>
